@@ -15,7 +15,7 @@
         <h1>Solicitud</h1>
         <p>Después de introducir tus datos prime el botón "enviar"</p>
         
-        <form action="paginaDestino.jsp">
+        <form action="2-1_tabla-imagenes.jsp">
             <table cellspacing="3" cellpadding="3" border="1">
                 <tr>
                     <td align="right">Nombre: </td>
