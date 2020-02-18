@@ -25,11 +25,11 @@
         <p>Hola <%= nombre%></p>
         <table cellspacing="3" cellpadding="3" border="1">
             <tr>
-                <td align="right">Tu Sueldo total fué:</td>
-                <td><%= calcula.getSueldo()%>Pesos</td>
+                <td align="right">Tu Sueldo total fue:</td>
+                <td><%= calcula.getSueldo()%> Pesos</td>
             </tr>
         </table>
-        <form action="index.jsp" method="post">
+        <form action="4-1_calcular-sueldo.jsp" method="post">
             <input type="submit" value="Regresar">
         </form>
     </body>

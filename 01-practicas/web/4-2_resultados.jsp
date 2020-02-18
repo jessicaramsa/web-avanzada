@@ -20,7 +20,7 @@
             String C = request.getParameter("VarC");
             ResuelveEc solucion = new ResuelveEc(A,B,C);
             String result1= solucion.raiz1();
-            String result2=  solucion.raiz2();
+            String result2 = solucion.raiz2();
             ServletContext sc = this.getServletContext();
             String path = sc.getRealPath("/WEB-INF/Resultados.txt");
             GestorArchivo guardar = new GestorArchivo();
@@ -41,7 +41,7 @@
                 </tr>
             </table>
         </form>
-        <p>Los resusltados se guardaron en el archivo <br>"Resultados.txt"</p><br>
+        <p>Los resultados se guardaron en el archivo <br>"Resultados.txt"</p><br>
         <form action="4-2_ecuacion.jsp" method="post">
             <input type="submit" value="Regresar">
         </form>
