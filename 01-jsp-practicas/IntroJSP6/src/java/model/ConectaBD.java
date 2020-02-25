@@ -7,7 +7,7 @@ public class ConectaBD {
     public static Connection con = null;
     private static String bd = "sistemalogin";
     public static String usuario = "root";
-    public static String passw = "cluster.8";
+    public static String passw = "Cluster.8";
     public static String url = "jdbc:mysql://localhost/" + bd;
 
     public static Connection abrir() {

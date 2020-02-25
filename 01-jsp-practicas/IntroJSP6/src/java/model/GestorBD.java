@@ -87,7 +87,7 @@ public class GestorBD {
         try {
             conn = ConectaBD.abrir();
             stm = conn.createStatement();
-            usuarioResultSet = stm.executeQuery("SELECT * FROM usuarios");
+            usuarioResultSet = stm.executeQuery("SELECT * FROM usuarios;");
             if (!usuarioResultSet.next()) {
                 System.out.println("No se encontraron registros");
                 ConectaBD.cerrar();

@@ -14,7 +14,7 @@
     <body>
         <%@page import="controller.registraProducto"%>
         <h2>Hola! Proporciona los datos</h2>
-        <h2> del producto</h2>
+        <h2>del producto</h2>
         <form action="registraProducto" method="post">
             <table cellspacing="3" cellpadding="3" border="1">
                 <tr>
