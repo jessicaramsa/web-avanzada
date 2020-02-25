@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 24/02/2020, 09:28:20 PM
+    Document   : resultado
+    Created on : 25/02/2020, 07:48:44 AM
     Author     : jessicaramsa
 --%>
 
@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Resultados</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Nivel de jugador</h1>
     </body>
 </html>
