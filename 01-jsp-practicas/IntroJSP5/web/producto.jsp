@@ -38,8 +38,7 @@
             <input type="submit" value="Registrar">
         </form>
         <br>
-        <form action="muestraRegistro" method="POST">
-            <input type="hidden" value="/WEB-INF/Productos.txt">
+        <form action="muestraProductos" method="POST">
             <input type="submit" value="Ver Productos">
         </form>
     </body>
