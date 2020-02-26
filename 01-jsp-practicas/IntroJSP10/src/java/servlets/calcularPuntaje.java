@@ -25,8 +25,18 @@ public class calcularPuntaje extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
         int puntaje = Integer.parseInt(request.getParameter("puntaje"));
-        request.setAttribute("puntaje", puntaje);
+        String nivelJugador = "";
+        if (puntaje > 901 && puntaje < 1000)
+            nivelJugador = "Experto";
+        else if (puntaje > 600)
+            nivelJugador = "Avanzado";
+        else if (puntaje > 250)
+            nivelJugador = "Intermedio";
+        else
+            nivelJugador = "Principiante";
+        request.setAttribute("nivelJugador", nivelJugador);
         request.getRequestDispatcher("/resultado.jsp").forward(request, response);
     }
 
