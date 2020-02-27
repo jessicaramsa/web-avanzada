@@ -14,7 +14,7 @@
     <body>
         <h1>Página de inicio</h1>
         <p>Hola, por favor introduce la información</p>
-        <form action="4-1_paginaDestino.jsp" method="post">
+        <form action="paginaDestino.jsp" method="post">
             <table cellspacing="3" cellpadding="3" border="1">
                 <tr>
                     <td align="right">Nombre:</td>
