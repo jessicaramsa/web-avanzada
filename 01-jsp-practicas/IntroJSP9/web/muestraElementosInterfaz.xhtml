@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>Muestra elementos</title>
+</h:head>
+<h:body>
+    <h:form id="form">
+        <center>
+            <h:selectBooleanCheckbox value="#{formulario.recibirInfo}"/>
+            <span>Deseo recibir más información</span>
+            <span> &nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span><i><b>BooleanCheckbox</b></i></span>
+            <br/><br/><br/>
+            <h:selectManyCheckbox value="#{formulario.idiomas}">
+                <f:selectItem itemValue="español" itemLabel="Español"/>
+                <f:selectItem itemValue="ingles" itemLabel="Ingles"/>
+                <f:selectItem itemValue="frances" itemLabel="Frances"/>
+                <f:selectItem itemValue="aleman" itemLabel="Aleman"/>
+            </h:selectManyCheckbox>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span><i><b>selectManyCheckbox</b></i></span>
+            <br/><br/><br/>
+            <table cellspacing="5" cellpadding="5" border="0">
+                <tr>
+                    <td>
+                        <h:selectManyListbox value="#{formulario.lenguajes}">
+                            <f:selectItem itemValue="c" itemLabel="C"/>
+                            <f:selectItem itemValue="c++" itemLabel="C++"/>
+                            <f:selectItem itemValue="java" itemLabel="Java"/>
+                            <f:selectItem itemValue="phyton" itemLabel="Phyton"/>
+                        </h:selectManyListbox>
+                        <span><i><b>&nbsp;&nbsp;selectManyListbox</b></i></span>
+                    </td>
+                    <td>
+                        <h:selectOneRadio value="#{formulario.genero}">
+                            <f:selectItem itemValue="masculino" itemLabel="Masculino"/>
+                            <f:selectItem itemValue="femenino" itemLabel="Femenino"/>
+                        </h:selectOneRadio>
+                        <span><i><b>&nbsp;&nbsp;&nbsp;&nbsp;selectOneRadio</b></i></span>
+                        <br/><br/><br/>
+                    </td>
+                </tr>
+            </table>
+            <h:selectOneMenu value="#{formulario.sistema}">
+                <f:selectItem itemValue="windows" itemLabel="Windows"/>
+                <f:selectItem itemValue="linux" itemLabel="Linux"/>
+            </h:selectOneMenu>
+            <span><i><b>&nbsp;&nbsp;selectOneMenu</b></i></span>
+            <br/><br/><br/>
+            <h:commandLink value="Regresar" action="index"/>
+        </center>
+    </h:form>
+</h:body>
+</html>

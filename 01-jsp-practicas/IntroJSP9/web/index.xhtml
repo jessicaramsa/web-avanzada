@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Página de inicio</title>
+    </h:head>
+    <h:body>
+        <h:form id="form">
+            <center>
+                <h:graphicImage url = "/imgs/User_Computer.png" width="156" height="156" alt="no se pudo mostrar imagen"/>
+                <h2 class="title" >Acceso al Sistema</h2>
+                <span style="margin-right: 15px;">Usuario:</span>
+                <h:inputText value="#{login.userName}"/>
+                <br/><br/>
+                <span style="margin-right: 9px;">Password:</span>
+                <h:inputSecret value="#{login.password}"/>
+                <br/><br/><br/>
+                <h:commandButton actionListener="#{login.aceptar()}" value="Aceptar"/>
+                <h:commandButton value="Registrarse" action="{login.registrarUsuario()"/>
+            </center>
+        </h:form>
+    </h:body>
+</html>
