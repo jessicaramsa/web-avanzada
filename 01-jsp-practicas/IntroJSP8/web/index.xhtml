@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Página de inicio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </h:head>
+    <h:body>
+        <h:form id="form">
+            <center>
+                <img src="imgs/User_Computer.png" width="156" height="156" alt="No se puso mostrar User Computer">
+                <h2 class="title">Hola</h2>
+                <h3>Elige una interfaz</h3>
+                <h:commandButton value="ir a sonrisa" action="#{navegador.metodo2()}"/>
+                <br/><br/>
+                <h:commandButton value="Ejemplos de elementos IU" action="#{navegador.metodo3()}"/>
+                <br/><br/>
+                <h:commandButton value="ir a un Facelet" action="#{navegador.metodo4()}"/>
+                <br/><br/>
+            </center>
+        </h:form>
+    </h:body>
+</html>
