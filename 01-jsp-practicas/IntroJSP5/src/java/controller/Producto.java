@@ -1,10 +1,12 @@
 package controller;
 
+import java.io.Serializable;
+
 /**
  *
  * @author jessicaramsa
  */
-public class Producto {
+public class Producto implements Serializable {
     private int clave;
     private String nombre;
     private Double precio;
