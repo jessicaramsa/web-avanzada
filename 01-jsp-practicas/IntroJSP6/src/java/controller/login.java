@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.*;
 
 /**
@@ -34,7 +35,9 @@ public class login extends HttpServlet {
             GestorBD gestorBD = new GestorBD();
             usuario = gestorBD.consultar(cuenta, clave);
             if (usuario != null) {
-                request.setAttribute("nombre", usuario.getNombre());
+                HttpSession session = request.getSession();
+                session.setAttribute("nombre", usuario.getNombre());
+                //request.setAttribute("nombre", usuario.getNombre());
                 request.getRequestDispatcher("/inicioSistema.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("/noEncontrado.jsp").forward(request, response);

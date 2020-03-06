@@ -13,8 +13,26 @@
     </head>
     <body>
         <%@page import="controller.registraProducto"%>
-        <h2>Hola! Proporciona los datos</h2>
-        <h2>del producto</h2>
+        <h2>Hola! Proporciona los datos del producto</h2>
+        <script>
+            function valida(form) {
+                if (document.forma.clave.value == "")
+                    alert("falta introducir la clave");
+                else {
+                    if (document.forma.nombre.value == "")
+                        alert("falta introducir el nombre");
+                    else {
+                        if (document.forma.precio.value == "")
+                            alert("falta introducir el precio");
+                        else {
+                            if (document.forma.cant.value == "")
+                                alert("falta introducir la cantidad");
+                            else form.submit();
+                        }
+                    }
+                }
+            }
+        </script>
         <form action="registraProducto" method="post">
             <table cellspacing="3" cellpadding="3" border="1">
                 <tr>
@@ -35,7 +53,7 @@
                 </tr>
             </table>
             <input type="reset" value="Borrar">
-            <input type="submit" value="Registrar">
+            <input type="submit" value="Registrar" onclick="valida(this.form)">
         </form>
         <br>
         <form action="muestraProductos" method="POST">

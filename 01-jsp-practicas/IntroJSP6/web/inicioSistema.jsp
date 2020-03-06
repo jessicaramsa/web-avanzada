@@ -1,5 +1,5 @@
 <%-- 
-    Document   : llenaRegistro2
+    Document   : inicioSistema.jsp
     Created on : 24/02/2020, 06:08:38 PM
     Author     : Uroboros
 --%>
@@ -13,7 +13,7 @@
 </head>
 <body>
     <%@page import="controller.registro" %>
-    <% String nombre = (String) request.getAttribute("nombre");%>
+    <% String nombre = (String) session.getAttribute("nombre");%>
     <h1>Hola <%= nombre %> bienvenido al sistema!</h1><br>
     <form action="muestraUsuarios" method="post">
         <input type="submit" value="Consultar Usuarios">

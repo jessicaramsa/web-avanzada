@@ -15,7 +15,7 @@
     <h1>Bienvenido al sistema de Login!</h1>
     <%@page import="controller.login"%>
     <h3>Introduce tu cuenta y tu contraseña</h3>
-    <form action="login" method="post">
+    <form name="forma" action="login" method="post">
         <table cellspacing="3" cellpadding="3" border="1">
             <tr>
                 <td align="right">Cuenta:</td>
