@@ -16,16 +16,16 @@
         <h2>Hola! Proporciona los datos del producto</h2>
         <script>
             function valida(form) {
-                if (document.forma.clave.value == "")
+                if (document.forma.clave.value === "")
                     alert("falta introducir la clave");
                 else {
-                    if (document.forma.nombre.value == "")
+                    if (document.forma.nombre.value === "")
                         alert("falta introducir el nombre");
                     else {
-                        if (document.forma.precio.value == "")
+                        if (document.forma.precio.value === "")
                             alert("falta introducir el precio");
                         else {
-                            if (document.forma.cant.value == "")
+                            if (document.forma.cant.value === "")
                                 alert("falta introducir la cantidad");
                             else form.submit();
                         }
@@ -33,7 +33,7 @@
                 }
             }
         </script>
-        <form action="registraProducto" method="post">
+        <form name="forma" action="registraProducto" method="post">
             <table cellspacing="3" cellpadding="3" border="1">
                 <tr>
                     <td align="right">Clave:</td>
