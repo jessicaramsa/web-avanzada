@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import javax.faces.context.FacesContext;
+import model.Interfaces;
 
 /**
  *
@@ -12,7 +14,8 @@ public class AdministraVista {
     public void presentarInterfaz(int interfaceId) {
         try {
             Interfaces listaInterfaces = new Interfaces();
-            FacesContext.getCurrentInstance().getExternalContext().redirect(listaInterfaces.obtenerNombreInterfaz(interfaceId));
+            FacesContext.getCurrentInstance().getExternalContext().
+                    redirect(listaInterfaces.obtenerNombreInterfaz(interfaceId));
         } catch (IOException ex) {
             System.out.println("Error");
         }
