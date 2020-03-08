@@ -15,18 +15,21 @@
         <%
             int puntaje = Integer.parseInt(request.getParameter("puntaje"));
             String nivelJugador = "";
-            if (puntaje > 901 && puntaje < 1000)
+
+            if (puntaje > 901 && puntaje < 1000) {
                 nivelJugador = "Experto";
-            else if (puntaje > 600)
+            } else if (puntaje > 600) {
                 nivelJugador = "Avanzado";
-            else if (puntaje > 250)
+            } else if (puntaje > 250) {
                 nivelJugador = "Intermedio";
-            else
+            } else {
                 nivelJugador = "Principiante";
+            }
         %>
 
         <h1>Nivel de jugador</h1>
         <h1>¡Felicidades eres nivel <%= nivelJugador%>!</h1>
+        <h3>Total de puntos obtenidos <%= puntaje%></h3>
 
         <form action="index.jsp" mehtod="post">
             <input type="submit" value="Regresar">

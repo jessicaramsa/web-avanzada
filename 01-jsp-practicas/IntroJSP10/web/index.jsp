@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Videojuego</h1>
-        <form acction="resultado.jsp" method="post">
+        <form action="resultado.jsp" method="post">
             <label for="puntaje">Puntos obtenidos durante el videojuego:</label>
             <input type="number" placeholder="Puntos obtenidos" name="puntaje" min="0" max="1000">
             <br>
