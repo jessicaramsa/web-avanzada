@@ -11,13 +11,18 @@
                 <h:graphicImage url = "/imgs/User_Computer.png" width="156" height="156" alt="no se pudo mostrar imagen"/>
                 <h2 class="title" >Acceso al Sistema</h2>
                 <span style="margin-right: 15px;">Usuario:</span>
-                <h:inputText value="#{login.userName}"/>
+                <h:inputText/>
                 <br/><br/>
                 <span style="margin-right: 9px;">Password:</span>
-                <h:inputSecret value="#{login.password}"/>
+                <h:inputSecret/>
                 <br/><br/><br/>
-                <h:commandButton actionListener="#{login.aceptar()}" value="Aceptar"/>
-                <h:commandButton value="Registrarse" action="{login.registrarUsuario()"/>
+                <h:commandButton value="Aceptar"/>
+                <h:commandButton value="Registrarse"/>
+                <br/><br/><br/>
+                
+                <h:commandButton value="Mostrar elementos de interfaz" action="muestraElementosInterfaz"/>
+                <br/><br/>
+                <h:commandLink value="Ir a sonrisa" action="sonrisa"/>
             </center>
         </h:form>
     </h:body>
