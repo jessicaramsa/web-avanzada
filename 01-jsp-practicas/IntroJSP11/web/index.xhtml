@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>UEA Ing Comp</title>
+    </h:head>
+    <h:body>
+        <h2 style="color: blue">Lista de UEA de Ingeniería en Computación</h2>
+        <h:form>
+            <h:dataTable value="#{controllerManagedBean.getUeasList()}"
+                         var="uea" border="2" cellspacing="1" cellpadding="1">
+                <h:column>
+                    <f:facet name="header">Clave</f:facet>
+                    #{uea.clave}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Nombre</f:facet>
+                    #{uea.nombre}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Trimestre</f:facet>
+                    #{uea.trimestre}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Requisito</f:facet>
+                    #{uea.requisito}
+                </h:column>
+            </h:dataTable>
+            <br/><br/>
+            
+            <h:commandButton value="Agregar UEA" type="submit"
+                             action="#{controllerManagedBean.pedirDatosUEA_aAgregar()}"/>
+            <h:commandButton value="Borrar UEA" type="submit"
+                             action="#{controllerManagedBean.pedirDatosUEA_aBorrar()}"/>
+            <h:commandButton value="Modificar UEA" type="submit"
+                             action="#{controllerManagedBean.pedirDatosUEA_aLocalizar()}"/>
+        </h:form>
+    </h:body>
+</html>
