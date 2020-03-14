@@ -11,14 +11,13 @@ import java.sql.SQLException;
 public class ConectaBD {
     private Connection conexion = null;
     private String servidor = "localhost";
-    private String database = "materiasIngComp";
+    private String database = "videojuegos";
     private String usuario = "root";
     private String password = "Cluster.8";
     private String url = "";
 
     public ConectaBD() {
         try {
-            // Establece la conexión con la base de datos
             Class.forName("com.mysql.jdbc.Driver");
             url = "jdbc:mysql://" + servidor + "/" + database;
             conexion = DriverManager.getConnection(url, usuario, password);

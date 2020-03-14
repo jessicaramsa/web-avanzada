@@ -3,12 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <head>
-        <title>Agregar UEA</title>
+        <title>Agregar Videojuego</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
         <h:form id="form" style="width: 100%; padding: 20px 33px;">
-            <h2 style="color: blue;">Proporciona los datos de la UEA nueva</h2>
+            <h2 style="color: blue;">Proporciona los datos del Videojuego nuevo</h2>
             
             <span>Clave:</span>
             <h:inputText value="#{controllerManagedBean.clave}" style="width: 25%"/>
@@ -18,18 +18,22 @@
             <h:inputText value="#{controllerManagedBean.nombre}" style="width: 25%"/>
             <br/><br/>
             
-            <span>Trimestre:</span>
-            <h:inputText value="#{controllerManagedBean.trimestre}" style="width: 25%"/>
+            <span>Género:</span>
+            <h:inputText value="#{controllerManagedBean.genero}" style="width: 25%"/>
             <br/><br/>
             
-            <span>Requisito:</span>
-            <h:inputText value="#{controllerManagedBean.requisito}" style="width: 25%"/>
+            <span>Plataforma:</span>
+            <h:inputText value="#{controllerManagedBean.plataforma}" style="width: 25%"/>
+            <br/><br/>
+            
+            <span>Precio:</span>
+            <h:inputText value="#{controllerManagedBean.precio}" style="width: 25%"/>
             <br/><br/>
             <br/><br/>
             
             <h:commandButton value="Regresar" action="index"/>
             <h:commandButton value="Enviar" type="submit"
-                    action="#{controllerManagedBean.modificarUEA()}"/>
+                    action="#{controllerManagedBean.modificarVideojuego()}"/>
         </h:form>
     </body>
 </html>

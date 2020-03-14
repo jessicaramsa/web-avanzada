@@ -8,7 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import model.GestorBD;
-import model.Uea;
+import model.Videojuego;
 
 /**
  *
@@ -19,14 +19,15 @@ import model.Uea;
 public class ControllerManagedBean {
     private Integer clave;
     private String nombre;
-    private Integer trimestre;
-    private String requisito;
+    private String genero;
+    private String plataforma;
+    private String precio;
     private GestorBD gestorBD;
-    private static ArrayList<Uea> ueasList;
+    private static ArrayList<Videojuego> videojuegosList;
     
     public ControllerManagedBean() {
         gestorBD = new GestorBD();
-        ueasList = gestorBD.leerUeas();
+        videojuegosList = gestorBD.leerVideojuegos();
     }
 
     public Integer getClave() {
@@ -37,16 +38,20 @@ public class ControllerManagedBean {
         return nombre;
     }
 
-    public Integer getTrimestre() {
-        return trimestre;
+    public String getGenero() {
+        return genero;
     }
 
-    public String getRequisito() {
-        return requisito;
+    public String getPlataforma() {
+        return plataforma;
     }
 
-    public ArrayList<Uea> getUeasList() {
-        return ueasList;
+    public String getPrecio() {
+        return precio;
+    }
+
+    public ArrayList<Videojuego> getVideojuegosList() {
+        return videojuegosList;
     }
 
     public void setClave(Integer clave) {
@@ -57,33 +62,45 @@ public class ControllerManagedBean {
         this.nombre = nombre;
     }
 
-    public void setTrimestre(Integer trimestre) {
-        this.trimestre = trimestre;
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
-    public void setRequisito(String requisito) {
-        this.requisito = requisito;
+    public void setPlataforma(String plataforma) {
+        this.plataforma = plataforma;
     }
 
-    public void setUeasList(ArrayList<Uea> ueasList) {
-        ControllerManagedBean.ueasList = ueasList;
+    public void setPrecio(String precio) {
+        this.precio = precio;
+    }
+
+    public GestorBD getGestorBD() {
+        return gestorBD;
+    }
+
+    public void setGestorBD(GestorBD gestorBD) {
+        this.gestorBD = gestorBD;
+    }
+
+    public void setVideojuegosList(ArrayList<Videojuego> videojuegosList) {
+        ControllerManagedBean.videojuegosList = videojuegosList;
     }
     
-    public void pedirDatosUEA_aAgregar() {
+    public void pedirDatosVideojuego_aAgregar() {
         try {
             FacesContext.getCurrentInstance()
                         .getExternalContext()
-                        .redirect("agregar_UEA.xhtml");
+                        .redirect("agregar.xhtml");
         } catch(IOException ioe) {
             Logger.getLogger(ControllerManagedBean.class.getName()).log(Level.SEVERE, null, ioe);
         }
     }
     
-    public void guardarUEA() {
-        Uea ueaNueva = new Uea(clave, nombre, trimestre, requisito);
-        if (gestorBD.guardarUea(ueaNueva)) {
+    public void guardarVideojuego() {
+        Videojuego videojuegoNuevo = new Videojuego(clave, nombre, genero, plataforma, precio);
+        if (gestorBD.guardarVideojuego(videojuegoNuevo)) {
             try {
-                ueasList = gestorBD.leerUeas();
+                videojuegosList = gestorBD.leerVideojuegos();
                 FacesContext.getCurrentInstance()
                             .getExternalContext()
                             .redirect("index.xhtml");
@@ -93,21 +110,21 @@ public class ControllerManagedBean {
         }
     }
     
-    public void pedirDatosUEA_aBorrar() {
+    public void pedirDatosVideojuego_aBorrar() {
         try {
             FacesContext.getCurrentInstance()
                         .getExternalContext()
-                        .redirect("borrar_UEA.xhtml");
+                        .redirect("borrar.xhtml");
         } catch(IOException ioe) {
             Logger.getLogger(ControllerManagedBean.class.getName()).log(Level.SEVERE, null, ioe);
         }
     }
     
-    public void borrarUEA() {
-        Uea ueaABorrar = new Uea(clave, nombre, trimestre, requisito);
-        if (gestorBD.borrarUea(ueaABorrar)) {
+    public void borrarVideojuego() {
+        Videojuego videojuegoABorrar = new Videojuego(clave, nombre, genero, plataforma, precio);
+        if (gestorBD.borrarVideojuego(videojuegoABorrar)) {
             try {
-                ueasList = gestorBD.leerUeas();
+                videojuegosList = gestorBD.leerVideojuegos();
                 FacesContext.getCurrentInstance()
                             .getExternalContext()
                             .redirect("index.xhtml");
@@ -117,31 +134,32 @@ public class ControllerManagedBean {
         }
     }
     
-    public void pedirDatosUEA_aLocalizar() {
+    public void pedirDatosVideojuego_aLocalizar() {
         try {
             FacesContext.getCurrentInstance()
                         .getExternalContext()
-                        .redirect("localizar_UEA.xhtml");
+                        .redirect("localizar.xhtml");
         } catch(IOException ioe) {
             Logger.getLogger(ControllerManagedBean.class.getName()).log(Level.SEVERE, null, ioe);
         }
     }
     
-    public void localizarUEA() {
-        if (gestorBD.localizaUEA(clave, nombre)) {
+    public void localizarVideojuego() {
+        if (gestorBD.localizaVideojuego(clave, nombre)) {
             try {
-                Uea ueaNueva = gestorBD.localizaUEACompleta(clave, nombre);
-                trimestre = ueaNueva.getTrimestre();
-                requisito = ueaNueva.getRequisito();
+                Videojuego videojuegoNuevo = gestorBD.localizaVideojuegoCompleto(clave, nombre);
+                genero = videojuegoNuevo.getGenero();
+                plataforma = videojuegoNuevo.getPlataforma();
+                precio = videojuegoNuevo.getPrecio();
                 FacesContext.getCurrentInstance()
                             .getExternalContext()
-                            .redirect("modificar_UEA.xhtml");
+                            .redirect("modificar.xhtml");
             } catch(IOException ioe) {
                 Logger.getLogger(ControllerManagedBean.class.getName()).log(Level.SEVERE, null, ioe);
             }
         } else {
             try {
-                ueasList = gestorBD.leerUeas();
+                videojuegosList = gestorBD.leerVideojuegos();
                 FacesContext.getCurrentInstance()
                             .getExternalContext()
                             .redirect("error.xhtml");
@@ -151,11 +169,11 @@ public class ControllerManagedBean {
         }
     }
     
-    public void modificarUEA() {
-        Uea ueaACambiar = new Uea(clave, nombre, trimestre, requisito);
-        if (gestorBD.modificarUea(ueaACambiar)) {
+    public void modificarVideojuego() {
+        Videojuego videojuegoACambiar = new Videojuego(clave, nombre, genero, plataforma, precio);
+        if (gestorBD.modificarVideojuego(videojuegoACambiar)) {
             try {
-                ueasList = gestorBD.leerUeas();
+                videojuegosList = gestorBD.leerVideojuegos();
                 FacesContext.getCurrentInstance()
                             .getExternalContext()
                             .redirect("index.xhtml");

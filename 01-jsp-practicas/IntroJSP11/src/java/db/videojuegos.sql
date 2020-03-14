@@ -14,4 +14,8 @@ CREATE TABLE videojuego(
 	precio varchar(150)
 );
 
-INSERT INTO videojuego VALUES(029010, 'Inside', '', '', '300');
+INSERT INTO videojuego VALUES(029010, 'Cities Skylines', 'Constructor', 'PC', '300');
+INSERT INTO videojuego VALUES(108249, 'Celeste', 'Indie', 'PC/Nintendo Switch', '500');
+INSERT INTO videojuego VALUES(120945, 'Bad North Jotunn Edition', 'Combate', 'PC', '200');
+INSERT INTO videojuego VALUES(092375, 'Fox Game', 'RPG', 'PC', '900');
+INSERT INTO videojuego VALUES(834902, 'Mortal Kombat', 'Combate', 'PC', '599');

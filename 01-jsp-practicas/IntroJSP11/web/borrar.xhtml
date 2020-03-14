@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Localizar UEA</title>
+    <head>
+        <title>Borrar Videojuego</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </h:head>
-    <h:body>
+    </head>
+    <body>
         <h:form id="form" style="width: 100%; padding: 20px 33px;">
-            <h2 style="color: blue">Proporciona clave y nombre de la UEA a modificar</h2>
+            <h2 style="color: blue">Proporciona clave y nombre del Videojuego a eliminar</h2>
             
             <span>Clave:</span>
             <h:inputText value="#{controllerManagedBean.clave}" style="width: 25%"/>
@@ -24,9 +19,11 @@ and open the template in the editor.
             <br/><br/>
             <br/><br/>
             
-            <h:commandButton value="Regresar" action="index"/>
-            <h:commandButton value="Localizar" type="submit"
-                    action="#{controllerManagedBean.localizarUEA()}"/>
+            <span>
+                <h:commandButton value="Regresar" action="index"/>
+                <h:commandButton value="Eliminar" type="submit"
+                        action="#{controllerManagedBean.borrarVideojuego()}"/>
+            </span>
         </h:form>
-    </h:body>
+    </body>
 </html>
