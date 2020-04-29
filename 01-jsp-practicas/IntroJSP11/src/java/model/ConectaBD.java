@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public class ConectaBD {
     private Connection conexion = null;
     private String servidor = "localhost";
-    private String database = "videojuegos";
+    private String database = "materiasIngComp";
     private String usuario = "root";
     private String password = "Cluster.8";
     private String url = "";

@@ -13,37 +13,36 @@ import java.util.ArrayList;
 public class GestorBD {
     private Connection conexion = null;
     private Statement stm = null;
-    private ResultSet videojuegoResultSet;
-    private Integer clave;
-    private String nombre, genero, plataforma, precio;
+    private ResultSet ueaResultSet;
+    private Integer clave, trimestre;
+    private String nombre, requisito;
     private int resultUpdate = 0;
 
-    public ArrayList<Videojuego> leerVideojuegos() {
-        ArrayList<Videojuego> videojuego = new ArrayList<>();
-        Videojuego videojuegoEncontrado;
+    public ArrayList<Uea> leerUeas() {
+        ArrayList<Uea> ueas = new ArrayList<>();
+        Uea ueaHallada;
 
         try {
             ConectaBD conectaBD = new ConectaBD();
             conexion = conectaBD.getConexion();
             stm = conexion.createStatement();
-            videojuegoResultSet = stm.executeQuery("SELECT * FROM videojuego;");
+            ueaResultSet = stm.executeQuery("SELECT * FROM ueas;");
 
-            if (!videojuegoResultSet.next()) {
+            if (!ueaResultSet.next()) {
                 System.out.println("No se encontraron registros.");
                 conexion.close();
                 return null;
             } else {
                 do {
-                    clave = videojuegoResultSet.getInt("clave");
-                    nombre = videojuegoResultSet.getString("nombre");
-                    genero = videojuegoResultSet.getString("genero");
-                    plataforma = videojuegoResultSet.getString("plataforma");
-                    precio = videojuegoResultSet.getString("precio");
-                    videojuegoEncontrado = new Videojuego(clave, nombre, genero, plataforma, precio);
-                    videojuego.add(videojuegoEncontrado);
-                } while(videojuegoResultSet.next());
+                    clave = ueaResultSet.getInt("clave");
+                    nombre = ueaResultSet.getString("nombre");
+                    trimestre = ueaResultSet.getInt("trimestre");
+                    requisito = ueaResultSet.getString("requiere");
+                    ueaHallada = new Uea(clave, nombre, trimestre, requisito);
+                    ueas.add(ueaHallada);
+                } while(ueaResultSet.next());
                 conexion.close();
-                return videojuego;
+                return ueas;
             }
         } catch(SQLException sqle) {
             System.out.println("Error en la base de datos.");
@@ -52,24 +51,23 @@ public class GestorBD {
         }
     }
     
-    public boolean guardarVideojuego(Videojuego videojuegoNuevo) {
+    public boolean guardarUea(Uea ueaNueva) {
         try {
             ConectaBD conectaBD = new ConectaBD();
             conexion = conectaBD.getConexion();
             stm = conexion.createStatement();
-            resultUpdate = stm.executeUpdate("INSERT INTO videojuego VALUES("
-                    + videojuegoNuevo.getClave() + ", "
-                    + "'" + videojuegoNuevo.getNombre() + "', "
-                    + "'" + videojuegoNuevo.getGenero() + "', "
-                    + "'" + videojuegoNuevo.getPlataforma() + "', "
-                    + "'" + videojuegoNuevo.getPrecio() + "');"
+            resultUpdate = stm.executeUpdate("INSERT INTO ueas VALUES("
+                    + ueaNueva.getClave() + ", "
+                    + "'"+ ueaNueva.getNombre() + "', "
+                    + ueaNueva.getTrimestre() + ", "
+                    + "'"+ ueaNueva.getRequisito() + "');"
             );
             if (resultUpdate != 0) {
                 conexion.close();
                 return true;
             } else {
                 conexion.close();
-                System.out.println("No se pudo insertar el Videojuego.");
+                System.out.println("No se pudo insertar la UEA.");
                 return false;
             }
         } catch(SQLException sqle) {
@@ -79,14 +77,14 @@ public class GestorBD {
         }
     }
     
-    public boolean borrarVideojuego(Videojuego videojuegoABorrar) {
+    public boolean borrarUea(Uea ueaABorrar) {
         try {
             ConectaBD conectaBD = new ConectaBD();
             conexion = conectaBD.getConexion();
             stm = conexion.createStatement();
-            resultUpdate = stm.executeUpdate("DELETE FROM videojuego WHERE("
-                    + "clave = " + videojuegoABorrar.getClave()
-                    + " AND nombre = '" + videojuegoABorrar.getNombre() + "');"
+            resultUpdate = stm.executeUpdate("DELETE FROM ueas WHERE("
+                    + "clave = " + ueaABorrar.getClave()
+                    + " AND nombre = '" + ueaABorrar.getNombre() + "');"
             );
             
             if (resultUpdate != 0) {
@@ -94,7 +92,7 @@ public class GestorBD {
                 return true;
             } else {
                 conexion.close();
-                System.out.println("No se pudo borrar el Videojuego.");
+                System.out.println("No se pudo borrar la UEA.");
                 return false;
             }
         } catch(SQLException sqle) {
@@ -104,16 +102,16 @@ public class GestorBD {
         }
     }
     
-    public boolean localizaVideojuego(Integer clave, String nombre) {
+    public boolean localizaUEA(Integer clave, String nombre) {
         try {
             ConectaBD conectaBD = new ConectaBD();
             conexion = conectaBD.getConexion();
             stm = conexion.createStatement();
-            videojuegoResultSet = stm.executeQuery("SELECT * FROM videojuego"
+            ueaResultSet = stm.executeQuery("SELECT * FROM ueas"
                     + " WHERE (clave = " + clave
                     + " AND nombre = '" + nombre + "');"
             );
-            if (!videojuegoResultSet.next()) {
+            if (!ueaResultSet.next()) {
                 System.out.println("No se encontraron registros.");
                 conexion.close();
                 return false;
@@ -128,29 +126,26 @@ public class GestorBD {
         }
     }
     
-    public Videojuego localizaVideojuegoCompleto(Integer clave, String nombre) {
+    public Uea localizaUEACompleta(Integer clave, String nombre) {
         try {
             ConectaBD conectaBD = new ConectaBD();
             conexion = conectaBD.getConexion();
             stm = conexion.createStatement();
-            videojuegoResultSet = stm.executeQuery("SELECT * FROM videojuego"
+            ueaResultSet = stm.executeQuery("SELECT * FROM ueas"
                     + " WHERE (clave = " + clave
                     + " AND nombre = '" + nombre + "');"
             );
-            if (!videojuegoResultSet.next()) {
+            if (!ueaResultSet.next()) {
                 System.out.println("No se encontraron registros.");
                 conexion.close();
                 return null;
             } else {
-                Videojuego videojuegoNuevo = new Videojuego(
-                    clave,
-                    nombre,
-                    videojuegoResultSet.getString("genero"),
-                    videojuegoResultSet.getString("plataforma"),
-                    videojuegoResultSet.getString("precio")
+                Uea ueaNueva = new Uea(clave, nombre,
+                    ueaResultSet.getInt("trimestre"),
+                    ueaResultSet.getString("requiere")
                 );
                 conexion.close();
-                return videojuegoNuevo;
+                return ueaNueva;
             }
         } catch(SQLException sqle) {
             System.out.println("Error en la base de datos.");
@@ -159,24 +154,23 @@ public class GestorBD {
         }
     }
     
-    public boolean modificarVideojuego(Videojuego videojuegoACambiar) {
+    public boolean modificarUea(Uea ueaACambiar) {
         try {
             ConectaBD conectaBD = new ConectaBD();
             conexion = conectaBD.getConexion();
             stm = conexion.createStatement();
-            resultUpdate = stm.executeUpdate("UPDATE videojuego SET "
-                    + "nombre = '" + videojuegoACambiar.getNombre() + "', "
-                    + "genero = '" + videojuegoACambiar.getGenero() + "', "
-                    + "plataforma = '" + videojuegoACambiar.getPlataforma() + "' "
-                    + "precio = '" + videojuegoACambiar.getPrecio() + "' "
-                    + "WHERE clave = " + videojuegoACambiar.getClave() + ";"
+            resultUpdate = stm.executeUpdate("UPDATE ueas SET "
+                    + "nombre = '" + ueaACambiar.getNombre() + "', "
+                    + "trimestre = " + ueaACambiar.getTrimestre() + ", "
+                    + "requiere = '" + ueaACambiar.getRequisito() + "' "
+                    + "WHERE clave = " + ueaACambiar.getClave() + ";"
             );
             if (resultUpdate != 0) {
                 conexion.close();
                 return true;
             } else {
                 conexion.close();
-                System.out.println("No se pudo modificar el Videojuego.");
+                System.out.println("No se pudo modificar la UEA.");
                 return false;
             }
         } catch(SQLException sqle) {
