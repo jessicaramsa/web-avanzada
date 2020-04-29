@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>SvCitas</servlet-name>
+        <servlet-class>negocio.SvCitas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SvEliminar</servlet-name>
+        <servlet-class>negocio.SvEliminar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SvModificar</servlet-name>
+        <servlet-class>negocio.SvModificar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SvTutorias</servlet-name>
+        <servlet-class>negocio.SvTutorias</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SvCitas</servlet-name>
+        <url-pattern>/SvCitas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SvEliminar</servlet-name>
+        <url-pattern>/SvEliminar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SvModificar</servlet-name>
+        <url-pattern>/SvModificar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SvTutorias</servlet-name>
+        <url-pattern>/SvTutorias</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
