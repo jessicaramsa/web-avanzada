@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Campo obligatorio</title>
+    </h:head>
+    <h:body>
+        <h:form id="form">
+            <center>
+                <span style="margin-right: 15px">Número de cuenta:</span>
+                <h:inputText id="numeroCuenta" value="#{loginBean.numeroCuenta}" required="true">
+                </h:inputText>
+                <br/><br/>
+                
+                <span style="margin-right: 15px">Nombre:</span>
+                <h:inputText id="nombre" value="#{loginBean.nombre}" required="true">
+                </h:inputText>
+                <br/><br/>
+                
+                <h:commandButton value="enviar" action="#{loginBean.enviar}"/>
+            </center>
+        </h:form>
+    </h:body>
+</html>
