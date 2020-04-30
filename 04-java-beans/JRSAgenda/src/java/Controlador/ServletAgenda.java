@@ -1,6 +1,5 @@
 package Controlador;
 
-import Bean.Cliente;
 import Persistencia.Agenda;
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;

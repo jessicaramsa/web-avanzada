@@ -112,7 +112,7 @@ public class SvEliminar extends HttpServlet {
                 out.println("<h3>Imposible realizar la operación</h3>");
                 out.println("<p><a href='SvEliminar'>continuar</a></p><p>" + e + "</p>");
                 out.println("</html>");
-                response.setHeader("Refresh", "5; URL=SvElimina");
+                response.setHeader("Refresh", "5; URL=SvEliminar");
             }
         }
     }

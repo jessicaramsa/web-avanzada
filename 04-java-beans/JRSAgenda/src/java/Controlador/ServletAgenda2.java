@@ -2,7 +2,6 @@ package Controlador;
 
 import Persistencia.Agenda;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

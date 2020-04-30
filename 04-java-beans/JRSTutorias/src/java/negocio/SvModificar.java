@@ -106,14 +106,14 @@ public class SvModificar extends HttpServlet {
             BD.ModificaCita(id_tutoria, alumno, asunto);
             out.println("<html>");
             out.println("<title>Respuesta a la solicitud</title>");
-            out.println("SE A MODIFICADO CORRECTAMENTE<br>:)");
+            out.println("SE HA MODIFICADO CORRECTAMENTE<br>:)");
             out.println("</html>");
         } catch (SQLException e) {
             out.println("<html>");
             out.println("<h3>Imposible realizar la operación</h3>" + e);
             out.println("<p><a href ='SvModificar'>continuar</a></p><p>" + e + "</p>");
             out.println("</html>");
-            response.setHeader("Refresh", "5; URL=SvModifica");
+            response.setHeader("Refresh", "5; URL=SvModificar");
         }
         out.close();
     }

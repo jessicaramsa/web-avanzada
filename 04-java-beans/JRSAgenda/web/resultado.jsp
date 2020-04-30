@@ -10,12 +10,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Agnda</title>
+        <title>Agenda</title>
     </head>
     <body>
         <h1>Mi Agenda</h1>
-        <jsp:useBean id="Agenda" scope="request" class="Persistencia.Agenda"
-                     />
+        <jsp:useBean id="Agenda" scope="request" class="Persistencia.Agenda"/>
         <table border="1">
             <thead>
                 <tr>

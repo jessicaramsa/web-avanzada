@@ -15,9 +15,7 @@
         <jsp:useBean id="CalculadoraBean" class="bean.CalculadoraBean">
         </jsp:useBean>
         <jsp:setProperty name="CalculadoraBean" property="*"/>
-        <%
-            CalculadoraBean.calculate();
-        %>
+        <% CalculadoraBean.calculate();%>
         <br/>
         <hr>
         <br/>
@@ -30,7 +28,7 @@
         <br/>
         <hr>
         <br/>
-        <form action="/Calculadora/faces/index.jsp" method="post"
+        <form action="/JRSCalculadora/faces/index.jsp" method="post"
               style="text-align: center">
             <table border="1" width="50%">
                 <tr style="text-align: center">
@@ -38,7 +36,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td>Primer Numero</td>
+                    <td>Primer Número</td>
                     <td>
                         <input type="text" name="firstNum">
                     </td>
@@ -55,7 +53,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Segundo Numero</td>
+                    <td>Segundo Número</td>
                     <td>
                         <input type="text" name="secondNum">
                     </td>

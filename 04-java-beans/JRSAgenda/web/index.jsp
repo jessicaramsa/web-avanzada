@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Bienvenido a mi Agenda</h1>
-        <form action="ServletAgenda2" method="post">
+        <form action="ServletAgenda" method="post">
             <input type="submit" value="Ver Agenda" />
         </form>
     </body>
