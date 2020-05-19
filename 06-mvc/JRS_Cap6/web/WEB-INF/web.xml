@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <servlet>
+        <servlet-name>Alumno_Insertar</servlet-name>
+        <servlet-class>app.controlador.Alumno_Insertar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Alumno_Actualizar</servlet-name>
+        <servlet-class>app.controlador.Alumno_Actualizar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Alumno_Eliminar</servlet-name>
+        <servlet-class>app.controlador.Alumno_Eliminar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Alumno_Buscar</servlet-name>
+        <servlet-class>app.controlador.Alumno_Buscar</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Alumno_Insertar</servlet-name>
+        <url-pattern>/Alumno_Insertar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Alumno_Actualizar</servlet-name>
+        <url-pattern>/Alumno_Actualizar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Alumno_Eliminar</servlet-name>
+        <url-pattern>/Alumno_Eliminar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Alumno_Buscar</servlet-name>
+        <url-pattern>/Alumno_Buscar</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
